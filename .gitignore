@@ -2,14 +2,19 @@
 
 # dependencies
 /node_modules
-node_modules/*
+# node_modules/*
+tic-tak-toe/node_modules/
 /.pnp
+tic-tak-toe/.pnp
 .pnp.js
+tic-tak-toe/.pnp.js
 
 # testing
 /coverage
+tic-tak-toe/coverage
 
 # production
+tic-tak-toe/build
 /build
 
 # misc

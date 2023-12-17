@@ -4,6 +4,7 @@
 /node_modules
 # node_modules/*
 tic-tak-toe/node_modules/
+tic-tak-toe/node_modules/*
 /.pnp
 tic-tak-toe/.pnp
 .pnp.js

@@ -110,3 +110,84 @@ console.log(is_prime(11));
 console.log(is_prime(12));
 
 show_primes(20);
+
+// OOP
+// methods <method_name> : () => {}
+// factory function
+function create_circle(raidus) {
+    return {
+        raidus, // vaible when key value is the same
+        draw() {
+            console.log("Draw");
+        } // simple way of <method>: function(){}
+    };
+}
+
+// constructor
+// use this.radius
+// 类似定义一个class
+function Circle(radius) {
+    this.radius = radius;
+    this.draw = () => {console.log("Draw")};
+}
+const circle = new Circle(1);
+circle.draw();
+const c2 = create_circle(2);
+console.log(circle.constructor);
+console.log(Circle.constructor);
+console.log(c2.constructor);
+
+c33 = {};
+Circle.call(c33, 10101);
+console.log(c33.radius);
+c4 = {};
+Circle.apply(c4, [101]);
+console.log(c4.radius);
+
+console.log(Object.keys(c4));
+console.log(Object.entries(c4));
+/**
+ * let key in circle
+ * let key of Object.keys(circle)
+ * let entry of Object.entries(circle)
+ */
+
+// clone an object
+const c5 = {};
+for (let key in c4) {
+    c5[key] = c4[key];
+}
+console.log(c5);
+
+const c6 = {};
+Object.assign(c6, c4);
+console.log(c6);
+
+// 展开运算符 又新又好
+const c7 = {...c4};
+console.log(c7);
+
+// 引号定义的string和new String()定义的string的区别
+// ``也能定义string
+// 像是f"" in py
+let c_name = "John";
+const lll =
+`Hi ${c_name},
+welcome`;
+console.log(lll);
+
+// some exercise
+function Addr(street, city, zip_code) {
+    this.street = street;
+    this.city = city;
+    this.zip_code = zip_code;
+}
+
+const show_addr = (addr) => {
+    for (let entry of Object.entries(addr)) {
+        console.log(entry);
+    }
+}
+
+const addr1 = new Addr("Here", "Mahrud", "00000");
+show_addr(addr1);

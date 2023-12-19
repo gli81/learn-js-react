@@ -69,3 +69,44 @@ const check_speed = (speed) => {
 console.log(check_speed(75));
 console.log(check_speed(74));
 
+const count_truthy = (array) => {
+    let ans = 0;
+    for (ele of array) if (ele) ans++;
+    return ans;
+}
+
+console.log(count_truthy([1, "1", '', null]));
+
+const sum = (limit) => {
+    let ans = 0;
+    let i = 1;
+    while (i <= limit) {
+        if (i % 3 === 0 || i % 5 === 0) ans += i;
+        i++;
+    }
+    return ans;
+}
+
+console.log(sum(10));
+
+const show_primes = (limit) => {
+    for (let num = 2; num <= limit; num++) {
+        if (is_prime(num)) console.log(num);
+    }
+}
+
+const is_prime = (num) => {
+    for (let i = 2; i < Math.floor(num ** 0.5) + 1; i++) {
+        if (num % i === 0) return false;
+    }
+    return true;
+}
+
+console.log(is_prime(2));
+console.log(is_prime(3));
+console.log(is_prime(0));
+console.log(is_prime(1));
+console.log(is_prime(11));
+console.log(is_prime(12));
+
+show_primes(20);

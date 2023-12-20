@@ -191,3 +191,34 @@ const show_addr = (addr) => {
 
 const addr1 = new Addr("Here", "Mahrud", "00000");
 show_addr(addr1);
+
+// combine operator
+const first = [1, 2, 3]
+const second = [4, 5, 6]
+const combined = [...first, ...second]
+console.log(combined)
+
+const array_from_range = (min, max) => {
+    const ans = [];
+    for (let cur = min; cur <= max; cur++) {
+        ans.push(cur);
+    }
+    return ans;
+}
+
+const count_occurences = (array, search_ele) => {
+    return array.reduce((accumulator, current) => {
+        if (current == search_ele) accumulator++;
+        return accumulator;
+    }, 0);
+}
+
+const numbers = [1, 2, 3, 5, 1];
+console.log(count_occurences(numbers, 2));
+
+const get_max = array => {
+    return array.reduce((accumulator, current) => {
+        return current > accumulator ? current : accumulator;
+    });
+}
+console.log(get_max(numbers));

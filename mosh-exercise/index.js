@@ -222,3 +222,109 @@ const get_max = array => {
     });
 }
 console.log(get_max(numbers));
+
+
+// missing arguments, input undefined
+// more than specified arguments, use what needed
+// arguments keyword
+function sum_(a, b) {
+    console.log(arguments);
+}
+
+sum_(1, 2, 3);
+
+// rest operator ...args; just like *args in python
+// different meaning in function parameters
+// must be the last parameter
+// and in arguments
+
+function sum_2(...nums) {
+    return nums.reduce((a, b) => a + b);
+}
+console.log(sum_2(1, 2, 3, 4, 5));
+
+// default parameters
+// same as in python
+// 跳过一个default parameter, 传一个undefined进去
+// best practice: default parameter在最后
+
+// gettor settor
+const ppp1 = {
+    first_name: "John",
+    last_name: "Smith",
+    get full_name() {
+        return `${this.first_name} ${this.last_name}`;
+    },
+    set full_name(value) {
+        try {
+            const parts = value.split(' ');
+            this.first_name = parts[0];
+            this.last_name = parts[1];
+        } catch (error) {
+            console.log("Error");
+        }
+    }
+};
+
+console.log(ppp1);
+console.log(ppp1.full_name);
+ppp1.full_name = "jdjjdjd jdjkgaf";
+console.log(ppp1.full_name);
+ppp1.full_name = 1;
+
+// try catch
+
+
+
+// var vs. let
+// var ==> function-scoped variable; do things with window object
+// let const ==> block-scoped variable; doesn't do things with window object
+
+
+// this keyword
+const video1 = {
+    title: 'a',
+    tags: ['a', 'b', 'c'],
+    showTags(){
+        this.tags.forEach((tag) => {
+            console.log(this.title, tag);
+        });
+    }
+};
+const video2 = {
+    title: 'a',
+    tags: ['a', 'b', 'c'],
+    showTags(){
+        this.tags.forEach((tag) => {
+            console.log(this.title, tag);
+        }, this);
+    }
+};
+video1.showTags(); // arrow function makes this pointing to the object
+video2.showTags();
+const video3 = {
+    title: 'a',
+    tags: ['a', 'b', 'c'],
+    showTags(){
+        const self = this;
+        this.tags.forEach((tag) => {
+            console.log(self.title, tag);
+        });
+    }
+};
+video3.showTags();
+
+// call() and apply()
+// bind()
+
+// exercise
+const circle_ = {
+    radius: 0,
+    get area() {
+        return Math.PI * this.radius * this.radius;
+    },
+}
+circle_.radius = 1.5;
+console.log(circle_.area);
+
+

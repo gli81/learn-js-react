@@ -38,3 +38,6 @@ const person2 = {...person, name: "Jack"};
 
 ## Work with arrays: map(), filter()
 
+## Async, Await, Fetch
+
+@_@

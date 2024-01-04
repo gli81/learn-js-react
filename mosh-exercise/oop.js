@@ -113,17 +113,58 @@ function Stopwatch() {
     );
 }
 
-const test = new Stopwatch();
-test.start();
-// function sleep(time) {
-//     return new Promise(r => setTimeout(r, time));
-// };
-// sleep(500);
-setTimeout(() => {
-    test.stop();
-    test.reset();
-    console.log(test.duration);
-}, 1000);
-// test.stop();
+// const test = new Stopwatch();
+// test.start();
+// // function sleep(time) {
+// //     return new Promise(r => setTimeout(r, time));
+// // };
+// // sleep(500);
+// setTimeout(() => {
+//     test.stop();
+//     test.reset();
+//     console.log(test.duration);
+// }, 1000);
+// // test.stop();
 
 
+// prototype
+let x = {};
+// every object inherit some object as prototype
+// except Object, which is the root object
+console.log(Object.getPrototypeOf(x));
+console.log(x.__proto__);
+
+// multi-level inheritence: array => Array => Object
+
+// property descriptor
+let person = {name: "mosh"};
+// 定义property的property @_@
+Object.defineProperty(person, "name", {
+    writable: false,
+    enumerable: false,
+    configurable: false,
+});
+
+console.log(Circle.prototype)
+
+
+// instance members vs. prototype members
+// overwrite
+
+// Object.keys() returns instance members
+// key in c1 returns all members
+
+function Shape() {
+
+};
+console.log("==========");
+// console.log(Shape.__proto__);
+Shape.prototype.duplicate = function() {
+    console.log("duplicate");
+};
+
+function Circle(radius) {
+    this.radius = radius;
+}
+
+Circle.prototype = Object.create(Shape.prototype);
